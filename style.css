@@ -1,0 +1,106 @@
+html{
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+
+/*nav*/
+.navbar-custom{
+    background-color: blueviolet;
+}
+.bi-joystick{
+    color: #5d02a7;
+}
+.items-nav{
+    margin-left: 60% !important;
+}
+/*carousel*/
+.carousel{
+background-color: #06adb3;
+}
+
+.item-use-caropusel{
+    height: 400px; 
+}
+.carousel-title{
+    margin-bottom: 1em;;
+}
+
+.h1{
+    margin-top: 1em;
+}
+.title {
+    margin-bottom: 0.8em;
+}
+
+.identifier {
+    font-weight: bold;
+}
+.group-text-carousel{
+    margin-bottom: .7em;
+}
+.avaliation {
+    color: red;
+}
+
+/* conteúdo de lançamentos*/
+
+#mid{
+    margin-top: 2em;
+}
+.card{
+    margin-bottom: 2rem;
+}
+.header-lancamentos{
+    margin-bottom: 2rem;;
+}
+.title-card{
+    margin-left: 1.2em;
+    margin-top: 0.3em;
+}
+
+
+/*plataformas*/
+
+.title-plataforms{
+    margin-left: 7em;
+    margin-bottom: 2em;;
+}
+
+#mac-img{
+    margin-top: 6em;;
+    margin-bottom: 6em;;
+}
+#windows-img{
+    margin-top: 6em;;
+    margin-bottom: 3em;;
+}
+
+/*publishers container*/
+
+.publishers-container{
+    background-color: #06adb3;
+}
+
+#logo-ea{
+    margin-top: 2em;;
+}
+
+/*sobre*/
+.title-item-plataforms{
+    font-weight: 700;
+    font-size: x-large;
+}
+.subtext-item-plataforms{
+    font-weight: 400;
+    font-size: x-large;
+}
+.item-sobre{
+    margin-top: 1em;
+}
+.redes-sociais{
+    margin-top: 1.2em;;
+}
+
+footer{
+    width: 100% !important;
+}
