@@ -267,9 +267,9 @@
       </div>
 
       <!-- <div class="flex colum col-lg-10 justify-content-around"> -->
-      <div class="flex row col-lg-10 justify-content-between">
+      <div class="flex row col-lg-10 justify-content-between " id="lancamentosGroup">
 
-        <div class="col-lg-3">
+        <!--         <div class="col-lg-3">
           <div class="card" style="width: 18rem;">
             <h4 class="card-title title-card">Valorant</h4>
             <iframe width="100%" height="160" src="https://www.youtube.com/embed/g8amyzDHOKw&t=1s"></iframe>
@@ -304,12 +304,12 @@
               <button type="button" class="btn btn-link">Mais detalhes</button>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
-      <div class="flex row col-lg-10 justify-content-between">
+      <!--       <div class="flex row col-lg-10 justify-content-between"> -->
 
-        <div class="col-lg-3">
+      <!--         <div class="col-lg-3">
           <div class="card" style="width: 18rem;">
             <h4 class="card-title title-card">GTV VI</h4>
             <iframe width="100%" height="160" src="https://youtube.com/embed/z7-K1zmBu-8"></iframe>
@@ -344,11 +344,11 @@
               <button type="button" class="btn btn-link">Mais detalhes</button>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
 
-      </div>
+      <!--       </div> -->
       <!-- </div> -->
       <div class="flex row col-lg-10 justify-content-end">
 
@@ -360,15 +360,14 @@
     <!-- plataformas -->
 
 
-    <div id="mid" class="flex col-lg-10">
+    <div id="mid" class="flex col-lg-10 ">
       <div class="title-plataforms col-lg-5 justify-content-center">
         <h2>Plataformas</h2>
       </div>
 
-      <div class="flex row col-lg-12 justify-content-around">
-
+      <div class="flex row col-lg-12 justify-content-around plataformas" id="plataformasGroup">
+        <!-- 
         <div class="card col-lg-3" style="width: 18rem;">
-          <!-- </div> -->
           <img id="windows-img" src="./img//plataforma-windows-11.svg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Windows</h5>
@@ -434,7 +433,7 @@
             </div>
           </div>
         </div>
-
+ -->
       </div>
 
 
@@ -643,9 +642,10 @@
 
       // busca plataformas
 
-      // const resPlataforms = await fetch(`https://api.rawg.io/api/platforms?key=${myKey}`);
-      // console.log(status)
-      // resPlataforms.status >= 200 && resPlataforms.status < 300 ? plataforms = (await res.json()).results : null;
+      const resPlataforms = await fetch(`https://api.rawg.io/api/platforms?key=${myKey}`);
+      const respPlataformaStatus = resPlataforms.status;
+      respPlataformaStatus >= 200 && respPlataformaStatus < 300 ? plataforms = (await resPlataforms.json()).results : null;
+      // console.log(plataforms)
 
       //busca jogos
 
@@ -653,32 +653,85 @@
       const resGamesStatus = await resGames.status;
 
       resGamesStatus >= 200 && resGamesStatus < 300 ? games = (await resGames.json()).results : null;
-      console.log(games)
+      // console.log(games)
 
-        //busca as publishers 
+      //busca as publishers 
 
-        // const resPublishers = await fetch(`${api}/publishers?key=${myKey}`);
-        // const resPublishersStatus = await resPublishers.status;
-
-
-        // resPublishersStatus >= 200 && resPublishersStatus < 300 ? publishers = (await resPublishers.json()).results : null;
-
-        // <div class="card" style="width: 18rem;">
-        //             <h4 class="card-title title-card">Valorant</h4>
-        //             <iframe width="100%" height="160" src="https://www.youtube.com/embed/g8amyzDHOKw&t=1s"></iframe>
-        //             <div class="card-body">
-        //               <button type="button" class="btn btn-link">Mais detalhes</button>
-        //             </div>
-        //           </div>
+      // const resPublishers = await fetch(`${api}/publishers?key=${myKey}`);
+      // const resPublishersStatus = await resPublishers.status;
 
 
-        //insere itens na lista de lançamentos
+      // resPublishersStatus >= 200 && resPublishersStatus < 300 ? publishers = (await resPublishers.json()).results : null;
+
+      // <div class="card" style="width: 18rem;">
+      //             <h4 class="card-title title-card">Valorant</h4>
+      //             <iframe width="100%" height="160" src="https://www.youtube.com/embed/g8amyzDHOKw&t=1s"></iframe>
+      //             <div class="card-body">
+      //               <button type="button" class="btn btn-link">Mais detalhes</button>
+      //             </div>
+      //           </div>
+
+
+      //insere itens na lista de lançamentos
+      (() => {
+
         (() => {
-          return ()
-          // nome jogo = name
-          //imagem jogo = background_image
-          // id para encmainhar: added
+          // insere itens em lançamentos
+          let lancamentosGroup = document.getElementById('lancamentosGroup');
+          let groupItemsLancamentos = "";
+          for (let item = 0; item < 4; item++) {
+            groupItemsLancamentos += `
+          <div class="card" style="width: 18rem;">
+                    <h4 class="card-title title-card">${games[item].name}</h4>
+                    <img src="${games[item].background_image}">
+                    <div class="card-body">
+                    
+                <p>Metacritics: ${games[item].metacritic}</p>
+                <p>Lançado em: ${games[item].released}</p>
+                      <a onclick="detalhes.html" type="button" class="btn btn-link">Mais detalhes</a>
+                      
+                    </div>
+                  </div>
+
+          `;
+
+            console.log(games[item])
+          }
+
+          lancamentosGroup.innerHTML = groupItemsLancamentos;
+
+          //insere itens em plataformas
+          let groupItemsPlataormas = "";
+          let PlataformsGroup = document.getElementById('plataformasGroup');
+          for (let item = 0; item < 3; item++) {
+            groupItemsPlataormas += `
+                <div class="card col-lg-3" style="width: 18rem;">
+                <!-- </div> -->
+                <img id="windows-img" src="${plataforms[item].image_background}" 
+                >
+                <div class="card-body">
+                  <h5 class="card-title">${plataforms[item].name}</h5>
+                  </div>
+                </div>
+              </div>
+                `
+            // lancamentosGroup.innerHTML = groupItems;
+          }
+          PlataformsGroup.innerHTML = groupItemsPlataormas;
         })()
+
+
+        // (() => {
+        //   console.log('entra nessa porra')
+
+        // })()
+
+
+
+        // nome plataorma = name
+        //imagem jogo = image_background
+        // id para encmainhar: id
+      })()
 
 
     })()
