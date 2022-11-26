@@ -679,6 +679,7 @@
           // insere itens em lançamentos
           let lancamentosGroup = document.getElementById('lancamentosGroup');
           let groupItemsLancamentos = "";
+          console.log()
           for (let item = 0; item < 4; item++) {
             groupItemsLancamentos += `
           <div class="card" style="width: 18rem;">
@@ -688,14 +689,14 @@
                     
                 <p>Metacritics: ${games[item].metacritic}</p>
                 <p>Lançado em: ${games[item].released}</p>
-                      <a onclick="detalhes.html" type="button" class="btn btn-link">Mais detalhes</a>
+                      <a href="detalhes.html?id=${games[0].id}" type="button" class="btn btn-link">Mais detalhes</a>
                       
                     </div>
                   </div>
 
           `;
 
-            console.log(games[item])
+            // console.log(games[item])
           }
 
           lancamentosGroup.innerHTML = groupItemsLancamentos;
@@ -703,6 +704,7 @@
           //insere itens em plataformas
           let groupItemsPlataormas = "";
           let PlataformsGroup = document.getElementById('plataformasGroup');
+          // console.log(plataforms[0].id)
           for (let item = 0; item < 3; item++) {
             groupItemsPlataormas += `
                 <div class="card col-lg-3" style="width: 18rem;">
