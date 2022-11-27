@@ -643,7 +643,7 @@
       // busca plataformas
 
       const resPlataforms = await fetch(`https://api.rawg.io/api/platforms?key=${myKey}`);
-      const respPlataformaStatus = resPlataforms.status;
+      const respPlataformaStatus = await resPlataforms.status;
       respPlataformaStatus >= 200 && respPlataformaStatus < 300 ? plataforms = (await resPlataforms.json()).results : null;
       // console.log(plataforms)
 
@@ -679,7 +679,7 @@
           // insere itens em lançamentos
           let lancamentosGroup = document.getElementById('lancamentosGroup');
           let groupItemsLancamentos = "";
-          console.log()
+
           for (let item = 0; item < 4; item++) {
             groupItemsLancamentos += `
           <div class="card" style="width: 18rem;">
@@ -689,7 +689,7 @@
                     
                 <p>Metacritics: ${games[item].metacritic}</p>
                 <p>Lançado em: ${games[item].released}</p>
-                      <a href="detalhes.html?id=${games[0].id}" type="button" class="btn btn-link">Mais detalhes</a>
+                      <a href="detalhes.html?id=${games[0].id}&key=${myKey}" type="button" class="btn btn-link">Mais detalhes</a>
                       
                     </div>
                   </div>
