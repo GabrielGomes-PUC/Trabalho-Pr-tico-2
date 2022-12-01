@@ -23,8 +23,16 @@
       </svg>
   
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link ativo-nav" href="index.html">Home</span></a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="pesquisa.html">Pesquisa</span></a>
+                  </li>
+                </ul>
+                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                                                        <button class="btn btn-outline-success" type="submit">Search</button> -->
       </form>
     </div>
   </nav>
@@ -144,6 +152,9 @@
     let getCreators = await fetch(`${api}/creators/${id}?key=${key}`)
     const creatorsInfoObject = await getCreators.json();
 
+    console.log('creatorsInfoObject')
+    console.log(creatorsInfoObject)
+
     const plataformas = gameInfoObject.platforms.map(e => {
       const plat = e.platform;
       console.log(plat.name)
@@ -168,7 +179,7 @@
       `
   }
 
-                          start();
+            start();
 </script>
 </body>
 

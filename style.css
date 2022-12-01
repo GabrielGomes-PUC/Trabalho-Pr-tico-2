@@ -2,7 +2,6 @@ html{
     font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 }
 
-
 /*nav*/
 .navbar-custom{
     background-color: blueviolet;
@@ -105,3 +104,6 @@ footer{
     width: 100% !important;
 }
 /* tela de detalhes */
+.ativo-nav {
+    font-weight: bold;
+}
